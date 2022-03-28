@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captain.Common", "Captain.Common\Captain.Common.csproj", "{0DBA2F28-CEC5-4942-9576-AEFBFA9E378C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captain", "Captain\Captain.csproj", "{DF219D36-7D8D-4E6C-AFAE-5754EEDC2F3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Captain.Database", "Captain.Database\Captain.Database.csproj", "{6206CFA5-0A4B-4DE8-9233-9A426342FFE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DBA2F28-CEC5-4942-9576-AEFBFA9E378C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBA2F28-CEC5-4942-9576-AEFBFA9E378C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBA2F28-CEC5-4942-9576-AEFBFA9E378C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBA2F28-CEC5-4942-9576-AEFBFA9E378C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF219D36-7D8D-4E6C-AFAE-5754EEDC2F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF219D36-7D8D-4E6C-AFAE-5754EEDC2F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF219D36-7D8D-4E6C-AFAE-5754EEDC2F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF219D36-7D8D-4E6C-AFAE-5754EEDC2F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6206CFA5-0A4B-4DE8-9233-9A426342FFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6206CFA5-0A4B-4DE8-9233-9A426342FFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6206CFA5-0A4B-4DE8-9233-9A426342FFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6206CFA5-0A4B-4DE8-9233-9A426342FFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

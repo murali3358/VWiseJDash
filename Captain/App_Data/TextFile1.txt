@@ -1,0 +1,143 @@
+﻿
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Chitti
+-- Create date: <Create Date,,>
+-- Description:	Search Users
+-- =============================================
+CREATE PROCEDURE SearchUsers
+(
+	@FirstName CHAR(20) = NULL,
+	@LastName CHAR(20) = NULL,
+	@EmployeeNo CHAR(20) = NULL,
+	@isActive CHAR(1) = NULL
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    
+	SELECT * FROM dbo.PASSWORD
+	WHERE 
+	(@EmployeeNo IS NULL OR PWR_EMPLOYEE_NO = @EmployeeNo)
+	AND
+	  (@FirstName IS NULL OR [PWR_NAME_IX_FIRST] LIKE @FirstName + '%')
+	AND
+	  (@LastName IS NULL OR [PWR_NAME_IX_LAST] LIKE @LastName + '%')
+	AND
+	  (@isActive IS NULL OR [PWR_INACTIVE_FLAG] = @isActive)
+
+END
+GO
+
+USE [CapSystems]
+GO
+/****** Object:  StoredProcedure [dbo].[GetHierarchies]    Script Date: 07/27/2010 15:30:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Chitti
+-- Create date: <Create Date,,>
+-- Description:	GetHierarchies
+-- =============================================
+-- EXEC [dbo].GetHierarchies 'Y'
+CREATE PROCEDURE [dbo].[GetHierarchies]
+(
+	@IsIntake  CHAR(1) = 'Y'
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+    
+	SELECT 
+		HIE_AGENCY + '-' + CASE WHEN Len(HIE_DEPT)=0  THEN '**' ELSE HIE_DEPT END + '-' + CASE WHEN LEN(HIE_PROGRAM) = 0 THEN '**' ELSE HIE_PROGRAM END CODE,
+		HIE_NAME
+	FROM 
+		dbo.CASEHIE
+	WHERE 
+		(HIE_ALT_INTAKE = @IsIntake)
+	ORDER BY
+			HIE_AGENCY,
+			HIE_DEPT,
+			HIE_PROGRAM
+END
+
+USE [CapSystems]
+GO
+/****** Object:  StoredProcedure [dbo].[GetModules]    Script Date: 07/27/2010 15:31:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Chitti
+-- Create date: <Create Date,,>
+-- Description:	[GetModules]
+-- =============================================
+-- EXEC [dbo].[GetModules] NULL,NULL, 'A',NULL
+CREATE PROCEDURE [dbo].[GetModules]
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+    
+	SELECT 
+		APPL_CODE ,
+		APPL_DESCRIPTION
+		FROM 
+		[dbo].[CAPAPPL] 
+	WHERE APPL_ACTIVE_CODE = 'A'
+	ORDER BY APPL_DESCRIPTION
+
+END
+
+
+USE [CapSystems]
+GO
+/****** Object:  StoredProcedure [dbo].[GetReports]    Script Date: 07/27/2010 15:32:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+-- =============================================
+-- Author:		Chitti
+-- Create date: <Create Date,,>
+-- Description:	[GetReports]
+-- =============================================
+-- EXEC [dbo].[GetScreens] NULL,NULL, 'A',NULL
+CREATE PROCEDURE [dbo].[GetReports]
+(
+	@ModuleCode VARCHAR(2)
+)
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT 
+		BAT_REPORT_NAME, 
+		BAT_REPORT_CODE
+		FROM 
+		[dbo].[BATCNTL] 
+	WHERE 
+		BAT_VIEW_PRIV = 'Y' AND BAT_MODULE_CODE = @ModuleCode
+	ORDER BY BAT_REPORT_NAME
+
+END
+
+
+
+
+
+
+
+
