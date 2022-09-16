@@ -39,6 +39,7 @@ namespace Captain.Common.Utilities
                 public const string DashBoard = "99";
                 public const string HealthyStart = "06";
                 public const string AgencyPartner = "11";
+                public const string mrk = "22";
             }
         }
 
