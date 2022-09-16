@@ -258,6 +258,8 @@ namespace Captain.Common.Model.Objects
         public string MST_YEAR { get; set; }
 
         public string Rec_Type { get; set; }
+	    
+	    public string Modetest {get;set;}
 
         #endregion
 
